@@ -61,7 +61,7 @@ export const FooterSection = () => {
             </div>
 
             <h3 className="text-sm text-muted-foreground text-center">
-              &copy; 2025 developed by{" "}
+              &copy; 2026 developed by{" "}
               <Link
                 target="_blank"
                 href="https://github.com/ace-webD"

@@ -159,7 +159,7 @@ export const TeamSection = () => {
         },
         {
           name: "Instagram",
-          url: "https://www.instagram.com/pranathiiii_03",
+          url: "https://www.instagram.com/pranathiiii__03",
         },
         {
           name: "Gmail",
