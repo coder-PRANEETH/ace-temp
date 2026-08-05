@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { ClusterCard } from "./ui/cluster-card";
 
 const domains = [
@@ -59,12 +62,45 @@ const domains = [
  
 ];
 export default function RecruitPage() {
+  const pageVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.5 } },
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.2 } },
+  };
+
+  const cardsVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 0.4,
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
-    <main className="min-h-screen bg-[#07152A] py-12 px-6">
-      <h1 className="text-white text-3xl font-bold text-center mb-10">
+    <motion.main
+      className="min-h-screen bg-[#07152A] py-12 px-6"
+      initial="hidden"
+      animate="visible"
+      variants={pageVariants}
+    >
+      <motion.h1
+        className="text-white text-3xl font-bold text-center mb-10"
+        variants={titleVariants}
+      >
         ACE Club Recruitment Drive 2026
-      </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      </motion.h1>
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl mx-auto"
+        variants={cardsVariants}
+      >
         {domains.map((domain, idx) => (
           <ClusterCard
             key={idx}
@@ -73,7 +109,7 @@ export default function RecruitPage() {
             applyLink={domain.applyLink}
           />
         ))}
-      </div>
-    </main>
+      </motion.div>
+    </motion.main>
   );
 }
